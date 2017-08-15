@@ -43,19 +43,19 @@ class ReactAuthController extends Controller
 	
 	private function ret(Request $request)
 	{
-		$tutor = $admin = $uid = false;
+		$tutor = $admin = $uid = -1;
 		if (Auth::check())
 		{
-			$user = Auth::user()->name;
+			$name = Auth::user()->name;
 			$uid = Auth::user()->id;
 			if ($request->user()->students()) $tutor = true;
 			$admin = (Auth::user()->id == 1);
 		}
 		else {
-			$user='';
+			$name='';
 		}
-		Log::debug("csrf:",['uid'=>$uid,'user'=>$user,'csrf'=>csrf_token(),'isTutor'=>$tutor,'isAdmin'=>$admin]);
-		return response()->json(['uid'=>$uid,'user'=>$user,'csrf'=>csrf_token(),'isTutor'=>$tutor,'isAdmin'=>$admin]);
+		Log::debug("csrf:",['uid'=>$uid,'name'=>$name,'csrf'=>csrf_token(),'isTutor'=>$tutor,'isAdmin'=>$admin]);
+		return response()->json(['uid'=>$uid,'name'=>$name,'csrf'=>csrf_token(),'isTutor'=>$tutor,'isAdmin'=>$admin]);
 	}
 	
 	public function csrf(Request $request)

@@ -19,7 +19,13 @@ Route::get('react_ajax/csrf', 'ReactAuthController@csrf');
 Route::post('react_ajax/login', 'ReactAuthController@login');
 Route::get('react_ajax/logout', 'ReactAuthController@logout');
 Route::get('react_ajax/help/{topic}', 'ReactAuthController@ajax_help');
+
 Route::post('react_ajax/stats', 'ReactController@ajax_stats');
+Route::post('react_ajax/import', 'ReactController@ajax_import');
+Route::get('react_ajax/help_list', 'ReactController@ajax_help_list');
+Route::post('react_ajax/tests', 'ReactController@ajax_tests');
+Route::post('react_ajax/import', 'ReactController@ajax_import');
+Route::post('react_ajax/testQs', 'ReactController@ajax_testQs');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

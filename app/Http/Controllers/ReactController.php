@@ -307,6 +307,8 @@ class ReactController extends Controller
 		{
 			$help->previous()->associate($oldhelp);
 		}
+		else $help->previous_id = 0;
+		$help->next_id = 0;
 		$help->save();
 		if ($oldhelp) {
 			$oldhelp->next()->associate($help);
