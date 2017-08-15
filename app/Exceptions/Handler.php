@@ -13,6 +13,7 @@ class Handler extends ExceptionHandler
      *
      * @var array
      */
+	/*
     protected $dontReport = [
         \Illuminate\Auth\AuthenticationException::class,
         \Illuminate\Auth\Access\AuthorizationException::class,
@@ -21,7 +22,7 @@ class Handler extends ExceptionHandler
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
     ];
-
+	*/
     /**
      * Report or log an exception.
      *
