@@ -26,6 +26,7 @@ Route::get('react_ajax/help_list', 'ReactController@ajax_help_list');
 Route::post('react_ajax/tests', 'ReactController@ajax_tests');
 Route::post('react_ajax/import', 'ReactController@ajax_import');
 Route::post('react_ajax/testQs', 'ReactController@ajax_testQs');
+Route::post('react_ajax/log_event', 'ReactController@ajax_log_event');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
