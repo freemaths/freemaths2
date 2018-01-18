@@ -71,7 +71,8 @@ class ReactAuthController extends Controller
 	{
 		if ($request->ajax()) {
 			$credentials = $request->only('email', 'password');
-			Auth::attempt($credentials, $request->has('remember'));
+			if ($request->has('remember')) Auth::attempt($credentials, $request->remember);
+			else Auth::attempt($credentials);
 		}
 		return $this->ret($request);
 	}

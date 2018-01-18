@@ -16,8 +16,8 @@ class CreateQuestionsTable extends Migration
         	$table->increments('id');
             $table->string('json',2048);
             $table->integer('user_id')->index();
-            $table->integer('previous_id');
-            $table->integer('next_id');
+            $table->integer('previous_id')->nullable();
+            $table->integer('next_id')->nullable();
         });
     }
 
