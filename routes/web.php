@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('reactApp');
+    return view('reactapp');
 });
 
 Route::get('react_ajax/csrf', 'ReactAuthController@csrf');
