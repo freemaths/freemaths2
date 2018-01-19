@@ -61,7 +61,7 @@ class ReactController extends Controller
 	{
 		if($request->ajax() && ($question = $request->question)){
 			$question = $request->question;
-			Log::debug('ajax_Q:'.print_r($question,true));
+			Log::debug('ajax_Q',['question'=>$question]);
 			if (isset($question['delete']))
 			{
 				if ($question['delete']>0) Question::find($question['delete'])->delete();
@@ -69,9 +69,10 @@ class ReactController extends Controller
 			}
 			else
 			{
-				if ($question['id'] != '') $q = Question::find($question['id']);
+				if ($question['id'] != 0) $q = Question::find($question['id']);
 				else $q = new Question;
-	
+				if (!isset($q->previous_id) && isset($question['previous_id'])) $q->previous_id=$question['previous_id'];
+				$q->next_id=0;
 				unset($question['number']); // stored on test_question
 				unset($question['tests']); // stored on test_question
 				//unset($question['marks']); // stored on test_question
